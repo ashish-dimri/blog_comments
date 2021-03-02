@@ -1,0 +1,13 @@
+<%= form_for @blog, class: "form-horizontal" do |f| %>
+	<%= f.hidden_field :user_id, value: current_user.present? ? current_user.id : "" %>
+	<div class="card">
+		<%= f.label :title %>
+	  <%= f.text_field :title, class: "form-control" %>
+	</div>
+	<div class="card">
+		<%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit" , class: "btn btn-primary mt-2" %>
+  <% end %>
+<%= link_to 'Back to Blog List', blogs_path %>

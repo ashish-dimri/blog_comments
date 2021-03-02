@@ -1,0 +1,8 @@
+<% if @comment.commentable_type == "Blog" %>
+	var comments = document.querySelector("#blog_comments");
+	$(".add_comment_area").val("");
+<% elsif @comment.commentable_type == "Comment" %>
+	var comments = document.querySelector("#comment_reply_<%=@comment.commentable.id%>");	
+	$(".add_reply_area").val("");
+<% end %>	
+comments.insertAdjacentHTML("afterbegin", "<%= j render(@comment) %>");
